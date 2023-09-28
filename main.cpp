@@ -66,6 +66,13 @@ int main () {
 		index_st.push(i);
 	}
 
-	
+	int max_area {};
+
+	for (int i {}; i < NUM; i++) {
+		//                         	 height * width
+		//                       height  * (right boundary * left boundary + 1)
+		max_area = max(max_area, array[i]*(r_small_bounds[i] - l_small_bounds[i] + 1));
+	}
+
 	return 0;
 }
