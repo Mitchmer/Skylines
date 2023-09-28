@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -31,16 +32,17 @@ int main () {
 		// Otherwise, the next smallest boundary on the left will be the index on the top of the stack
 		//		(plus one to create a boundary, as the element at the top index
 		//       is the smallest on the left: so the boundary would be right after that element)
-			l_small_bounds[i] = index-st.top() + 1;
+			l_small_bounds[i] = index_st.top() + 1;
 
 		// place the current index on the stack
 		index_st.push(i);
 	}
 
 	//Clear the stack for the right bounds
-	while(!index_st.empty()
+	while(!index_st.empty())
+		index_st.pop();
 
-	// Now we do the same, but in reverse, for the smallest bounds indexes on the right side of each element\
+	// Now we do the same, but in reverse, for the smallest bounds indexes on the right side of each element
 	for (int i {NUM-1}; i >= 0; i--) {
 		// while the index is not empty
 		// AND the element at the index at the top of the stack is greater than the current element (not a smaller bound)
